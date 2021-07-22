@@ -1,24 +1,57 @@
--# README
+## users テーブル
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+| Column             | Type   | Options     |
+| ------------------ | ------ | ----------- |
+| email              | string | null: false |
+| password           | string | null: false |
+| name               | string | null: false |
+| nickname           | string | null: false |
+| date of birth      | string | null: false |
 
-Things you may want to cover:
+### Association
 
-* Ruby version
+- has_many :items
+- has_many :
 
-* System dependencies
+## item テーブル
 
-* Configuration
+| Column             | Type       | Options                        |
+| ------------------ | ---------- | ------------------------------ |
+| title              | string     | null: false                    |
+| description        | text       | null: false                    |
+| category           | string     | null: false                    |
+| state              | string     | null: false                    |
+| price              | string     | null: false                    |
+| user               | references | null: false, foreign_key: true |
 
-* Database creation
+### Association
 
-* Database initialization
+- belong_to :users
+- has_one :buy
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+## buy テーブル
 
-* Deployment instructions
+| Column             | Type       | Options                        |
+| ------------------ | ---------- | ------------------------------ |
+| item               | references | null: false, foreign_key: true |
+| addresses          | references | null: false, foreign_key: true |
 
-* ...
+### Association
+
+- belong_to :item
+- has_many :addresses
+
+## addresses テーブル
+
+| Column             | Type       | Options                        |
+| ------------------ | ---------- | ------------------------------ |
+| postal_code        | string     | null: false                    |
+| prefecture         | integer    | null: false                    |
+| city               | string     | null: false                    |
+| house_num          | string     | null: false                    |
+| building_name      | string     |                                |
+
+### Association
+
+- belong_to :buys
