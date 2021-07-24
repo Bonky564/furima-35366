@@ -1,22 +1,22 @@
 ## users テーブル
 
-| Column             | Type   | Options                 |
-| ------------------ | ------ | ------------------------|
-| email              | string | null: false unique: true|
-| encrypted_password | string | null: false             |
-| nickname           | string | null: false             |
-| surname            | string | null: false             |
-| first_name         | string | null: false             |
-| surname_reading    | string | null: false             |
-| first_name_reading | string | null: false             |
-| date_of_birth      |  date  | null: false             |
+| Column             | Type   | Options                  |
+| ------------------ | ------ | ------------------------ |
+| email              | string | null: false, unique: true|
+| encrypted_password | string | null: false              |
+| nickname           | string | null: false              |
+| surname            | string | null: false              |
+| first_name         | string | null: false              |
+| surname_reading    | string | null: false              |
+| first_name_reading | string | null: false              |
+| date_of_birth      |  date  | null: false              |
 
 ### Association
 
 - has_many :items
 - has_many :buys
 
-## item テーブル
+## items テーブル
 
 | Column             | Type       | Options                        |
 | ------------------ | ---------- | ------------------------------ |
@@ -36,7 +36,7 @@
 - has_one :buy
 
 
-## buy テーブル
+## buys テーブル
 
 | Column             | Type       | Options                        |
 | ------------------ | ---------- | ------------------------------ |
@@ -49,7 +49,7 @@
 - belongs_to :user
 - has_one :address
 
-## address テーブル
+## addresses テーブル
 
 | Column             | Type       | Options                        |
 | ------------------ | ---------- | ------------------------------ |
@@ -59,7 +59,7 @@
 | house_num          | string     | null: false                    |
 | building_name      | string     |                                |
 | telephone_num      | string     | null: false                    |
-|       buy          | references |  foreign_key: true             |
+|       buy          | references | foreign_key: true              |
 
 ### Association
 
