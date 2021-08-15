@@ -26,13 +26,13 @@ RSpec.describe Item, type: :model do
         end
 
         it 'category_idが空では登録できないこと' do
-          @item.category_id = '1'
+          @item.category_id = 1
           @item.valid?
           expect(@item.errors.full_messages).to include("Category can't be blank")
         end
 
         it 'state_idが空では登録できないこと' do
-          @item.state_id = '1'
+          @item.state_id = 1
           @item.valid?
           expect(@item.errors.full_messages).to include("State can't be blank")
         end
@@ -44,19 +44,19 @@ RSpec.describe Item, type: :model do
         end
 
         it 'delivery_charge_idが空では登録できないこと' do
-          @item.delivery_charge_id = '1'
+          @item.delivery_charge_id = 1
           @item.valid?
           expect(@item.errors.full_messages).to include("Delivery charge can't be blank")
         end
 
         it 'prefecture_idが空では登録できないこと' do
-          @item.prefecture_id = '1'
+          @item.prefecture_id = 1
           @item.valid?
           expect(@item.errors.full_messages).to include("Prefecture can't be blank")
         end
 
         it 'day_idが空では登録できないこと' do
-          @item.day_id = '1'
+          @item.day_id = 1
           @item.valid?
           expect(@item.errors.full_messages).to include("Day can't be blank")
         end
