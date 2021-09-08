@@ -55,8 +55,13 @@ RSpec.describe BuyAddress, type: :model do
         @buy_address.valid?
         expect(@buy_address.errors.full_messages).to include('Postal code is invalid. Include hyphen(-)')
       end
-      it 'telephone_numは11桁以内の数値のみ保存可能なこと(数値)' do
+      it 'telephone_numは11桁以内の数値のみ保存可能なこと(文字)' do
         @buy_address.telephone_num = 'あいうえおかきくけこさ'
+        @buy_address.valid?
+        expect(@buy_address.errors.full_messages).to include("Telephone num is invalid")
+      end
+      it '電話番号に半角数字以外が含まれている場合は購入できない' do
+        @buy_address.telephone_num = '０９０１２３４５６７８'
         @buy_address.valid?
         expect(@buy_address.errors.full_messages).to include("Telephone num is invalid")
       end
