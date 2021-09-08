@@ -7,6 +7,7 @@ class Item < ApplicationRecord
   belongs_to :state
   has_one_attached :image
   belongs_to :user
+  has_one :buy
 
   with_options presence: true do
     validates :title
